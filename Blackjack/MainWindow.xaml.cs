@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlackjackGame;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,17 @@ namespace Blackjack
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void HitButton_Click(object sender, RoutedEventArgs e)
+        {
+            // draw a card to add to user's hand
+
+        }
+
+        private void StandButton_Click(object sender, RoutedEventArgs e)
+        {
+            // keep current cards and see results of the round
         }
     }
 }

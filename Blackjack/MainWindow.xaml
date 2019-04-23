@@ -5,12 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Blackjack"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="1000">
+        Title="Blackjack" Height="650" Width="1000">
     <Border Padding="15">
         <!-- General grid layout-->
 
             
         <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="C:\Users\domin\source\repos\Blackjack\Blackjack\Images\1326076386693.png" Stretch="UniformToFill" />
+            </Grid.Background>
+            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -28,18 +32,20 @@
                 <TextBlock Text="User Hand Total" FontSize="24" />
             </StackPanel>
 
-            <TextBlock Margin="0 0 0 0" Grid.Column="0" Grid.Row="2" Text="Total Chips/Current Bet" FontSize="24" />
+            <TextBlock x:Name="UserChips" Margin="0 0 0 0" Grid.Column="0" Grid.Row="2" Text="Total Chips/Current Bet" FontSize="24" />
             
             <!-- User Buttons lower right-->
             <StackPanel Grid.Column="2" Grid.Row="2">
-                <Button Margin="10" FontSize="24">Hit</Button>
-                <Button Margin="10" FontSize="24">Stand</Button>
+                <Button x:Name="HitButton" Click="HitButton_Click" Margin="10" FontSize="24">Hit</Button>
+                <Button x:Name="StandButton" Click="StandButton_Click" Margin="10" FontSize="24">Stand</Button>
             </StackPanel>
 
             <!-- End user information-->
 
-            <!-- Opponent and deck information-->
+            <!-- Opponent and deck information/ Top half-->
             <TextBlock Text="Deck" Grid.Column="2" Grid.Row="0" FontSize="36"/>
+            <TextBlock Text="Dealer's Cards" Grid.Column="1" Grid.Row="0" FontSize="24"/>
+
 
         </Grid>
 
