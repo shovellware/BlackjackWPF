@@ -11,9 +11,10 @@
 
             
         <Grid>
+            <!-- image source needs an online host to work on different devices
             <Grid.Background>
                 <ImageBrush ImageSource="C:\Users\domin\source\repos\Blackjack\Blackjack\Images\1326076386693.png" Stretch="UniformToFill" />
-            </Grid.Background>
+            </Grid.Background> -->
             
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -46,6 +47,10 @@
             <TextBlock Text="Deck" Grid.Column="2" Grid.Row="0" FontSize="36"/>
             <TextBlock Text="Dealer's Cards" Grid.Column="1" Grid.Row="0" FontSize="24"/>
 
+            
+            <!-- display testing-->
+            
+            
 
         </Grid>
 

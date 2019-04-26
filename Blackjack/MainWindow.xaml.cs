@@ -29,7 +29,6 @@ namespace Blackjack
         private void HitButton_Click(object sender, RoutedEventArgs e)
         {
             // draw a card to add to user's hand
-
         }
 
         private void StandButton_Click(object sender, RoutedEventArgs e)

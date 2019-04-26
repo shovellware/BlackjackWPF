@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace BlackjackGame
 {
+    /*
+     * Consider making a random array of size 52
+     * randomly load array with realistic values (four 2s, four 3s, etc...)
+     * could be used to test functionality of game without worrying about objects or suits
+     * really only need suits for display purposes (if suit is enum.heart, show a picture of a heart card)
+     */
+
     public class Card
     {
         public enum Suit { Heart, Diamond, Spade, Club }
