@@ -6,6 +6,14 @@ using System.Threading.Tasks;
 
 namespace BlackjackGame
 {
+    /* GAME CLASS MUST
+     * track player and user hands
+     * add to each hand
+     * track sum of each hand
+     * check win or loss conditions
+     * 
+     */
+
     class Game
     {
         // all the game logic will be in this class
@@ -13,11 +21,40 @@ namespace BlackjackGame
         Deck gameDeck = new Deck();
         // gameDeck.Shuffle(); - knuth shuffle
 
+        public void Play()
+        {
+            // track user hand and opponents hand
+            // user hand - size can increase to an unknown size based on how many cards are given
+            // user hand will be a list of <Card>
+            List<Card> userHand = new List<Card>();
+            List<Card> opponentHand = new List<Card>();
 
-        // track user hand and opponents hand
+            Player dominic = new Player();
+            Player cpu = new Player();
 
-        // user hand - size can increase to an unknown size based on how many cards are given
-        // user hand will be a list of <Card>
+            // initial deal cards
+            userHand.Add(gameDeck.GetCard()); // 2 cards
+            opponentHand.Add(gameDeck.GetCard()); // 2 cards
+        }
+
+
+
+
+
+
+
+
+        //public void Hit(List<Card> hand)
+        //{
+        //    hand.Add(gameDeck)
+        //}
+
+
+
+
+        
+
+        // Method to add a card to user hand with button from main xaml page
         // sum of user hand will be added to a total
 
         // TODO: win/loss conditions

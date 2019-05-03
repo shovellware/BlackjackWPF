@@ -29,13 +29,14 @@ namespace BlackjackGame
         // create 13 Hearts
         // TODO: see below
         // WHY IS IT REPEATING JACK 4 TIMES JUST BECAUSE THE VALUE IS THE SAME
-        // MIGHT HAVE TO SCRAP ENUM SCHEME AND USE DICT OR 
         void AddHearts()
         {
-            string[] allValues = Enum.GetNames(typeof(Values));
+            // suit and value are properly added here
+            var allValues = Enum.GetNames(typeof(Values));
 
             foreach (var name in allValues)
             {
+                // during this addition is where the jack problem arises
                 cardList.Push(new Card(Suit.Heart, (Values)Enum.Parse(typeof(Values), name)));
             }
         }
@@ -80,20 +81,9 @@ namespace BlackjackGame
             }
         }
 
-        public void GetCards()
+        public Card GetCard()
         {
-            foreach (Object obj in cardList)
-            {
-                Console.WriteLine(obj);
-            }
-
-
-            //return string.Join(" ", cardList.ToString());
-
-            //foreach (Card item in cardList)
-            //{
-            //    Console.WriteLine("You draw: {0}, {1}", item.CardValue, item.CardSuit);
-            //}
+            return cardList.Pop();
         }
     }
 }
