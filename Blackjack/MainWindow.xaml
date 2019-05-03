@@ -3,19 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Blackjack"
         mc:Ignorable="d"
         Title="Blackjack" Height="650" Width="1000">
     <Border Padding="15">
         <!-- General grid layout-->
 
-            
+
         <Grid>
             <!-- image source needs an online host to work on different devices
             <Grid.Background>
                 <ImageBrush ImageSource="C:\Users\domin\source\repos\Blackjack\Blackjack\Images\1326076386693.png" Stretch="UniformToFill" />
             </Grid.Background> -->
-            
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -26,7 +25,7 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            
+
             <!-- User hand information-->
             <StackPanel VerticalAlignment="Bottom" Margin="10" Grid.Row="1" Grid.Column="0">
                 <TextBlock Text="User Cards Here" FontWeight="Bold" FontSize="24"/>
@@ -34,7 +33,7 @@
             </StackPanel>
 
             <TextBlock x:Name="UserChips" Margin="0 0 0 0" Grid.Column="0" Grid.Row="2" Text="Total Chips/Current Bet" FontSize="24" />
-            
+
             <!-- User Buttons lower right-->
             <StackPanel Grid.Column="2" Grid.Row="2">
                 <Button x:Name="HitButton" Click="HitButton_Click" Margin="10" FontSize="24">Hit</Button>
@@ -47,13 +46,27 @@
             <TextBlock Text="Deck" Grid.Column="2" Grid.Row="0" FontSize="36"/>
             <TextBlock Text="Dealer's Cards" Grid.Column="1" Grid.Row="0" FontSize="24"/>
 
-            
+
             <!-- display testing-->
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <ListView Name="lvDataBinding"></ListView>
+
+            </Grid>
             
             
+            <!-- end display testing-->
 
         </Grid>
 
-        
+
+
     </Border>
+    
+    
 </Window>
