@@ -9,23 +9,20 @@ namespace BlackjackGame
 {
     public class Deck
     {
-        // a stack of cards is a deck
+        // a stack of cards to be treated as a real deck
         public Stack<Card> cardList = new Stack<Card>();
         public Deck()
         {
-            // moved list of values here instead of wasting memory each time the methods are called
-            // the code to add cards is now more concise and uniform
-            var allValues = Enum.GetValues(typeof(Values))
-                                            .Cast<Values>()
-                                            .ToList();
-
+            // a list of KeyValuePairs. pass it to my card-creating methods
+            // this is -absolutely- necessary because the value of each card can be, for example, a face(king) and a RANK(10)
+            var allRanks = Card.GetRanks();
 
             // default constructor is an ORDERED, UNSHUFFLED deck of cards. like it's brand new
             // TODO: Can I do this all in one method? the only difference in each is the suit. maybe i can loop through each suit once and call a single method instead of the 4 below
-            AddHearts(allValues);
-            AddDiamonds(allValues);
-            AddSpades(allValues);
-            AddClubs(allValues);
+            AddHearts(allRanks);
+            AddDiamonds(allRanks);
+            AddSpades(allRanks);
+            AddClubs(allRanks);
         }
 
         // TODO: shuffle
@@ -34,41 +31,40 @@ namespace BlackjackGame
 
         }
 
+        // the following methods assign a SUIT to the proper cards
         // create 13 Hearts
-        void AddHearts(List<Values> allvals)
+        void AddHearts(List<KeyValuePair<string, int>> ranks)
         {
             for (int i = 0; i < 13; i++)
             {
-                cardList.Push(new Card(Suit.Heart, allvals[i]) );
+                cardList.Push(new Card(Suit.Heart, ranks[i]) );
             }
         }
 
         // create 13 Diamonds
-        void AddDiamonds(List<Values> allvals)
+        void AddDiamonds(List<KeyValuePair<string, int>> ranks)
         {
             for (int i = 0; i < 13; i++)
             {
-                cardList.Push(new Card(Suit.Diamond, allvals[i]));
+                cardList.Push(new Card(Suit.Diamond, ranks[i]));
             }
         }
 
         // create 13 Spades
-        void AddSpades(List<Values> allvals)
+        void AddSpades(List<KeyValuePair<string, int>> ranks)
         {
             for (int i = 0; i < 13; i++)
             {
-                cardList.Push(new Card(Suit.Spade, allvals[i]));
+                cardList.Push(new Card(Suit.Spade, ranks[i]));
             }
         }
 
         // create 13 Clubs
-        void AddClubs(List<Values> allvals)
+        void AddClubs(List<KeyValuePair<string, int>> ranks)
         {
-            // loop through and assign that enum with a suit, add to deck
-
             for (int i = 0; i < 13; i++)
             {
-                cardList.Push(new Card(Suit.Club, allvals[i]));
+                cardList.Push(new Card(Suit.Club, ranks[i]));
             }
         }
 
