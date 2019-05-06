@@ -55,7 +55,14 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <ListView Name="lvDataBinding"></ListView>
+                <ListView Name="deckList">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Suit" Width="auto" DisplayMemberBinding="{Binding CardSuit}" />
+                            <GridViewColumn Header="Value" Width="auto" DisplayMemberBinding="{Binding CardValue}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
 
             </Grid>
             
