@@ -13,11 +13,19 @@ namespace BlackjackGame
         public Stack<Card> cardList = new Stack<Card>();
         public Deck()
         {
+            // moved list of values here instead of wasting memory each time the methods are called
+            // the code to add cards is now more concise and uniform
+            var allValues = Enum.GetValues(typeof(Values))
+                                            .Cast<Values>()
+                                            .ToList();
+
+
             // default constructor is an ORDERED, UNSHUFFLED deck of cards. like it's brand new
-            AddHearts();
-            AddDiamonds();
-            AddSpades();
-            AddClubs();
+            // TODO: Can I do this all in one method? the only difference in each is the suit. maybe i can loop through each suit once and call a single method instead of the 4 below
+            AddHearts(allValues);
+            AddDiamonds(allValues);
+            AddSpades(allValues);
+            AddClubs(allValues);
         }
 
         // TODO: shuffle
@@ -27,57 +35,40 @@ namespace BlackjackGame
         }
 
         // create 13 Hearts
-        // TODO: see below
-        // WHY IS IT REPEATING JACK 4 TIMES JUST BECAUSE THE VALUE IS THE SAME
-        void AddHearts()
+        void AddHearts(List<Values> allvals)
         {
-            // suit and value are properly added here
-            var allValues = Enum.GetNames(typeof(Values));
-
-            foreach (var name in allValues)
+            for (int i = 0; i < 13; i++)
             {
-                // during this addition is where the jack problem arises
-                cardList.Push(new Card(Suit.Heart, (Values)Enum.Parse(typeof(Values), name)));
+                cardList.Push(new Card(Suit.Heart, allvals[i]) );
             }
         }
 
         // create 13 Diamonds
-        void AddDiamonds()
+        void AddDiamonds(List<Values> allvals)
         {
-            var allValues = Enum.GetNames(typeof(Values));
-
-            foreach (var name in allValues)
+            for (int i = 0; i < 13; i++)
             {
-                cardList.Push(new Card(Suit.Diamond, (Values)Enum.Parse(typeof(Values), name)));
+                cardList.Push(new Card(Suit.Diamond, allvals[i]));
             }
         }
 
         // create 13 Spades
-        void AddSpades()
+        void AddSpades(List<Values> allvals)
         {
-            var allValues = Enum.GetValues(typeof(Values))
-                                            .Cast<Values>()
-                                            .ToList();
-
             for (int i = 0; i < 13; i++)
             {
-                cardList.Push(new Card(Suit.Spade, allValues[i]));
+                cardList.Push(new Card(Suit.Spade, allvals[i]));
             }
         }
 
         // create 13 Clubs
-        void AddClubs()
+        void AddClubs(List<Values> allvals)
         {
-            // give me a list of possible enum values (13 total)
             // loop through and assign that enum with a suit, add to deck
-
-            var allValues = Enum.GetValues(typeof(Values))
-                                            .Cast<Values>()
-                                            .ToList();
 
             for (int i = 0; i < 13; i++)
             {
-                cardList.Push(new Card(Suit.Club, allValues[i]));
+                cardList.Push(new Card(Suit.Club, allvals[i]));
             }
         }
 
