@@ -14,45 +14,12 @@ namespace BlackjackGame
      * 
      */
 
-    class Game
+    public class Game
     {
-        // all the game logic will be in this class
-        // deck to be used for the game
-        Deck gameDeck = new Deck();
-        // gameDeck.Shuffle(); - knuth shuffle
+        /* using this class might make things too complicated
+         * consider having it all in mainwindow.xaml.cs
+         */
 
-        public void Play()
-        {
-            // track user hand and opponents hand
-            // user hand - size can increase to an unknown size based on how many cards are given
-            // user hand will be a list of <Card>
-            List<Card> userHand = new List<Card>();
-            List<Card> opponentHand = new List<Card>();
-
-            Player dominic = new Player();
-            Player cpu = new Player();
-
-            // initial deal cards
-            userHand.Add(gameDeck.GetCard()); // 2 cards
-            opponentHand.Add(gameDeck.GetCard()); // 2 cards
-        }
-
-
-
-
-
-
-
-
-        //public void Hit(List<Card> hand)
-        //{
-        //    hand.Add(gameDeck)
-        //}
-
-
-
-
-        
 
         // Method to add a card to user hand with button from main xaml page
         // sum of user hand will be added to a total
