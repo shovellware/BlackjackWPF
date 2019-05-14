@@ -26,29 +26,50 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
+            
+            
+            
 
             <!-- Opponent and deck information/ Top half-->
-            <TextBlock Text="Dealer's Cards" Grid.Column="1" Grid.Row="0" FontSize="24"/>
+            <StackPanel Grid.Column="1" Grid.Row="0">
+                <TextBlock Text="Dealer's Cards" FontSize="24"/>
+                <ListView Name="cpuCards">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Rank" Width="auto" DisplayMemberBinding="{Binding CardRank}" />
+                            <GridViewColumn Header="Suit" Width="auto" DisplayMemberBinding="{Binding CardSuit}" />
+                            
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
 
+            
+            
             <TextBlock Text="Deck" Grid.Column="2" Grid.Row="0" FontSize="30"/>
-
-            <ListView Name="deckList" Grid.Column="2" Grid.Row="1">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Suit" Width="60" DisplayMemberBinding="{Binding CardSuit}" />
-                        <GridViewColumn Header="Value" Width="auto" DisplayMemberBinding="{Binding CardRank}" />
-                    </GridView>
-                </ListView.View>
-            </ListView>
-
+            <!-- Image of Facedown playing cards here-->
+            
+            
+            
 
             <!-- User hand information-->
             <StackPanel VerticalAlignment="Bottom" Margin="10" Grid.Row="3" Grid.Column="1">
-                <TextBlock Text="User Cards Here" FontWeight="Bold" FontSize="24"/>
-                <TextBlock Text="User Hand Total" FontSize="24" />
+                <TextBlock Text="Your Cards" FontWeight="Bold" FontSize="24"/>
+                <ListView Name="playerCards">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Rank" Width="auto" DisplayMemberBinding="{Binding CardRank}" />
+                            <GridViewColumn Header="Suit" Width="auto" DisplayMemberBinding="{Binding CardSuit}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                
+                <TextBlock Text="Your Hand Total: " FontSize="24" />
             </StackPanel>
 
             <TextBlock x:Name="UserChips" Margin="0 0 0 0" Grid.Column="0" Grid.Row="3" Text="Total Chips/Current Bet" FontSize="24" />
+            
+            
 
             <!-- User Buttons lower right-->
             <StackPanel Grid.Column="2" Grid.Row="3">

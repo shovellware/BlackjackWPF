@@ -27,13 +27,30 @@ namespace Blackjack
 
             // deck initialize test
             Deck myDeck = new Deck();
-            List<Card> myList = new List<Card>();
 
-            for (int i = 0; i < 52; i++)
+            #region deck display testing
+            //List<Card> myList = new List<Card>();
+
+            //for (int i = 0; i < 52; i++)
+            //{
+            //    myList.Add(myDeck.GetCard());
+            //}
+            //deckList.ItemsSource = myList;
+            #endregion
+
+            // both players automatically given 2 cards
+            BlackjackGame.Player dominic = new Player();
+            BlackjackGame.Player cpu = new Player();
+
+            for (int i = 0; i < 2; i++)
             {
-                myList.Add(myDeck.GetCard());
+                dominic.cardsInHand.Add(myDeck.GetCard());
+                cpu.cardsInHand.Add(myDeck.GetCard());
             }
-            deckList.ItemsSource = myList;
+
+            cpuCards.ItemsSource = cpu.cardsInHand;
+            playerCards.ItemsSource = dominic.cardsInHand;
+            
 
         }
 
