@@ -26,9 +26,9 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            
-            
-            
+
+
+
 
             <!-- Opponent and deck information/ Top half-->
             <StackPanel Grid.Column="1" Grid.Row="0">
@@ -38,19 +38,19 @@
                         <GridView>
                             <GridViewColumn Header="Rank" Width="auto" DisplayMemberBinding="{Binding CardRank}" />
                             <GridViewColumn Header="Suit" Width="auto" DisplayMemberBinding="{Binding CardSuit}" />
-                            
+
                         </GridView>
                     </ListView.View>
                 </ListView>
             </StackPanel>
 
-            
-            
+
+
             <TextBlock Text="Deck" Grid.Column="2" Grid.Row="0" FontSize="30"/>
             <!-- Image of Facedown playing cards here-->
-            
-            
-            
+
+
+
 
             <!-- User hand information-->
             <StackPanel VerticalAlignment="Bottom" Margin="10" Grid.Row="3" Grid.Column="1">
@@ -63,13 +63,14 @@
                         </GridView>
                     </ListView.View>
                 </ListView>
-                
-                <TextBlock Text="Your Hand Total: " FontSize="24" />
+
+                <TextBlock Text="Your Hand Total:  " FontSize="24" />
+                <TextBlock Name="playerTotal" />
             </StackPanel>
 
             <TextBlock x:Name="UserChips" Margin="0 0 0 0" Grid.Column="0" Grid.Row="3" Text="Total Chips/Current Bet" FontSize="24" />
-            
-            
+
+
 
             <!-- User Buttons lower right-->
             <StackPanel Grid.Column="2" Grid.Row="3">
@@ -79,16 +80,6 @@
 
             <!-- End user information-->
 
-            
-
-
-                <!-- display testing-->
-            
-
-            <!-- end display testing-->
-
         </Grid>
-
     </Border>
-    
 </Window>

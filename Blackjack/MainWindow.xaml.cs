@@ -25,35 +25,26 @@ namespace Blackjack
         {
             InitializeComponent();
 
-            // deck initialize test
             Deck myDeck = new Deck();
 
-            #region deck display testing
-            //List<Card> myList = new List<Card>();
-
-            //for (int i = 0; i < 52; i++)
-            //{
-            //    myList.Add(myDeck.GetCard());
-            //}
-            //deckList.ItemsSource = myList;
-            #endregion
-
-            // both players automatically given 2 cards
             BlackjackGame.Player dominic = new Player();
             BlackjackGame.Player cpu = new Player();
-
+            // add 2 cards to each players hand
             for (int i = 0; i < 2; i++)
             {
                 dominic.cardsInHand.Add(myDeck.GetCard());
                 cpu.cardsInHand.Add(myDeck.GetCard());
             }
-
+            // bind cards to the display window
             cpuCards.ItemsSource = cpu.cardsInHand;
             playerCards.ItemsSource = dominic.cardsInHand;
-            
+
+
+            // display user handtotal - doesnt work. showing 0 right now
+            // MessageBox.Show(dominic.HandTotal.ToString());
 
         }
-
+        
 
         private void HitButton_Click(object sender, RoutedEventArgs e)
         {
@@ -61,7 +52,6 @@ namespace Blackjack
             // draw a card to add to user's hand
             //BlackjackGame.Deck testing = new Deck();
             //MessageBox.Show(testing.GetCard());
-            
         }
 
         private void StandButton_Click(object sender, RoutedEventArgs e)
