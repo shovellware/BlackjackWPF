@@ -15,7 +15,6 @@ namespace BlackjackGame
             CardRank = values;
         }
 
-
         public enum Suit { Heart, Diamond, Spade, Club }
         
         // properties of a playing card
