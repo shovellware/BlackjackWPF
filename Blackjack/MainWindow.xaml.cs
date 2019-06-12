@@ -32,15 +32,17 @@ namespace Blackjack
             // add 2 cards to each players hand
             for (int i = 0; i < 2; i++)
             {
-                dominic.cardsInHand.Add(myDeck.GetCard());
-                cpu.cardsInHand.Add(myDeck.GetCard());
+                dominic.CardsInHand.Add(myDeck.GetCard());
+                cpu.CardsInHand.Add(myDeck.GetCard());
             }
+
             // bind cards to the display window
-            cpuCards.ItemsSource = cpu.cardsInHand;
-            playerCards.ItemsSource = dominic.cardsInHand;
+            cpuCards.ItemsSource = cpu.CardsInHand;
+            playerCards.ItemsSource = dominic.CardsInHand;
 
 
             // display user handtotal - doesnt work. showing 0 right now
+            // need to figure out refreshing in the xaml
             // MessageBox.Show(dominic.HandTotal.ToString());
 
         }
