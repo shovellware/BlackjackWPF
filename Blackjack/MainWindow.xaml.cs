@@ -36,7 +36,7 @@ namespace Blackjack
                 cpu.CardsInHand.Add(myDeck.GetCard());
             }
 
-            // bind cards to the display window
+            //// bind cards to the display window
             cpuCards.ItemsSource = cpu.CardsInHand;
             playerCards.ItemsSource = dominic.CardsInHand;
 
